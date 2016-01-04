@@ -11,11 +11,11 @@
   "author": "UKTI Digital",
   "scripts": {
     "test": "",
-    "start": "babel-node server",
+    "dev": "babel-node server",
     "eslint": "eslint .",
     "jscs": "jscs .",
-    "build": "rimraf dist && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors && babel server.js -o server-prod.js && babel app -d dist",
-    "serve": "NODE_ENV=production && node server-prod.js"
+    "start": "node server-prod.js",
+    "prestart": "./build.sh"
   },
   "dependencies": {
     "colorbrewer": "0.0.2",
@@ -25,7 +25,10 @@
     "dsv-loader": "^1.0.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
-
+    "raw-loader": "^0.5.1",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
     "autoprefixer": "^6.0.3",
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.3",
