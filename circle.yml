@@ -1,0 +1,13 @@
+machine:
+  node:
+    version: 5.1.0
+  post:
+    - git config --global user.email "circleci@example.com"
+    - git config --global user.name "circleci"
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./build.sh
+      - git add . && git commit -m "deploy" && git push git@heroku.com:ukti-data-dashboard-concept.git HEAD:master -f

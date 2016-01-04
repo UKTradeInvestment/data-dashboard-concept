@@ -14,8 +14,7 @@
     "dev": "babel-node server",
     "eslint": "eslint .",
     "jscs": "jscs .",
-    "start": "node server-prod.js",
-    "prestart": "./build.sh"
+    "start": "node server-prod.js"
   },
   "dependencies": {
     "colorbrewer": "0.0.2",
