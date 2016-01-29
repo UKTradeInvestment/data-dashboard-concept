@@ -1,0 +1,16 @@
+---
+
+bootstrapVersion: 4
+
+useFlexbox: true
+
+styleLoaders:
+  - style
+  - css
+  - sass
+
+extractStyles: false
+
+appStyles: ./app/styles/app.scss
+
+styles: true
