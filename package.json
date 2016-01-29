@@ -1,6 +1,6 @@
 {
   "name": "data-dashboard-concept",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "UKTI data dashboard - proof of concept",
   "main": "server.js",
   "keywords": [
@@ -14,7 +14,8 @@
     "dev": "babel-node server",
     "eslint": "eslint .",
     "jscs": "jscs .",
-    "start": "node server-prod.js"
+    "start": "node server-prod.js",
+    "build": "./build.sh"
   },
   "dependencies": {
     "colorbrewer": "0.0.2",
