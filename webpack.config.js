@@ -8,6 +8,7 @@ module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
+    'bootstrap-loader',
     path.join(__dirname, 'app/main.js')
   ],
   output: {
@@ -26,22 +27,21 @@ module.exports = {
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      exclude: /node_modules/,
-      loader: 'babel'
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
-    }, {
-      test: /\.css$/,
-      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
-    }, {
-      test: /\.csv?$/,
-      loader: 'raw-loader'
-    }]
-  }
+    loaders: [
+      { test: /\.js?$/, exclude: /node_modules/, loader: 'babel'},
+      { test: /\.json?$/, loader: 'json' },
+      { test: /\.css$/, loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]' },
+      { test: /\.scss$/, loaders: [ 'style', 'css', 'postcss', 'sass' ] },
+      { test: /\.csv?$/, loader: 'raw-loader' },
+      { test: /\.(woff2?|ttf|eot|svg)$/, loader: 'url?limit=10000' },
+      { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery'}
+    ]
+  },
 };

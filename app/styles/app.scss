@@ -1,0 +1,17 @@
+body {
+  padding-top: 5em;
+}
+
+.dc-chart {
+  // text-align: center;
+
+  svg {
+    float: right;
+  }
+}
+
+.filter-group {
+  height: 60px;
+  text-align: left;
+  float: left;
+}

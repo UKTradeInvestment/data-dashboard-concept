@@ -32,9 +32,9 @@ export default class App extends React.Component {
   render() {
     return (
       <div className={styles.app}>
-        <GeoChartRegions width={650} height={400} data={this.state.data} />
+        <GeoChartRegions width={600} height={375} data={this.state.data} />
 
-        <ChartMarkets width={1000} height={600} data={this.state.data} />
+        <ChartMarkets width={1110} height={1000} data={this.state.data} />
       </div>
     );
   }

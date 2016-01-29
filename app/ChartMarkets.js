@@ -54,11 +54,11 @@ export default class ChartMarkets extends React.Component {
 
     return (
       <div id={this._id}>
-        <div>
-          <a className="reset" href="#" onClick={resetFilters} style={{display: 'none'}}>reset</a>
-          <span className="reset" style={{display: 'none'}}> | Current filter:
-            <span className="filter"></span>
-          </span>
+        <div className="filter-group">
+          <div className="reset" style={{display: 'none'}}>
+            <strong>Markets filtered by:</strong> <span className="filter"></span>
+          </div>
+          <a className="reset btn btn-secondary btn-sm" href="#" onClick={resetFilters} style={{display: 'none'}}>Reset market filter</a>
         </div>
       </div>
     )

@@ -8,6 +8,7 @@ var StatsPlugin = require('stats-webpack-plugin');
 
 module.exports = {
   entry: [
+    'bootstrap-loader/extractStyles',
     path.join(__dirname, 'app/main.js')
   ],
   output: {
@@ -37,20 +38,14 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      exclude: /node_modules/,
-      loader: 'babel'
-    }, {
-      test: /\.json?$/,
-      loader: 'json'
-    }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
-    }, {
-      test: /\.csv?$/,
-      loader: 'raw-loader'
-    }]
+    loaders: [
+      { test: /\.js?$/, exclude: /node_modules/, loader: 'babel'},
+      { test: /\.json?$/, loader: 'json'},
+      { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')},
+      { test: /\.scss$/, loaders: [ 'style', 'css', 'postcss', 'sass' ] },
+      { test: /\.csv?$/, loader: 'raw-loader'},
+      { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery'}
+    ]
   },
   postcss: [
     require('autoprefixer')
